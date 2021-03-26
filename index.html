@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Css/Semantic-UI-CSS-master/semantic.css" />
+    <link rel="stylesheet" href="Css/Semantic-UI-CSS-master/style.css" />
+    <title>Formulaire</title>
+  </head>
+  <body class="flex_center width_max ">
+    <div class="flex_center flex_column  bgd_whitesmoke">
+
+      <div class="width_max bgd_bleu ui label">
+        <i class="address card icon"></i> Répertoire de contact
+        </div>
+      <div class="ui flex_row ">
+
+        <div class="bgd_white width_X">
+
+          <div class="ui label width_max bgd_bleu2">
+            Formulaire contact</div>
+
+          <form class="ui form" method="POST">
+            <div class="field">
+              <label>Prénom</label>
+              <input type="text" id="prenom"  />
+            </div>
+            <div class="field">
+              <label>Nom</label>
+              <input type="text" id="nom" />
+            </div>
+            <div class="field">
+                <label>Groupe</label>
+                <Select id="group">
+                    <option value=""></option>
+                    <option value="Collègue">Collègue</option>
+                    <option value="Famille">Famille</option>
+                    <option value="Ami">Ami</option>
+                </Select>
+              </div>
+            <div class="field">
+                <label>Bio</label>
+                <textarea name="" id="bio" cols="30" rows="4"></textarea>
+              </div>
+            <div class="field">
+                <button class="ui btn_petit button" type="submit">Choisir un fichier</button>
+                
+            </div>
+                <div class="field flex_space">
+                    <button class="ui button btn_gros btn_blue" type="submit" id="btnCreer"><i class="plus circle icon"></i>Créer</button>
+                    <button class="ui button btn_gros btn_red" type="submit" id="btnReint"><i class="undo icon"></i>Réinit.</button>
+                </div>                
+          </form>
+        </div>
+        <div class="bgd_white width_2X">
+          <div class="ui label width_max bgd_bleu2" >Liste de contact</div>
+          <div class="ui  icon input">            
+            <input type="text" placeholder="Rechercher...">
+          </div>
+          <div id="content_contact" >
+             <!-- <div id="contact_list" class="ui text overflow ">
+                                     
+                <div class="cont_btnClose">
+                 <i class="window close icon"></i> 
+               </div>
+               <div class="flex">                 
+                    <i class="user massive circle icon"></i>
+                 
+                 <div class="texte_cont">
+                    <h4 id="cont_nom">Nom</h4>
+                    <h7 id="cont_group">groupe</h7>
+                    <p id="cont_bio">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis a, est autem aliquid commodi similique quibusdam assumenda ea nisi iste, nesciunt, illum ut quia fugit unde consequatur magnam. Saepe, possimus!
+                    </p>
+                 </div> -->
+                   
+                 
+          </div>
+              
+          </div>
+        </div>
+      
+    </div>
+    <script src="JS/app.js"></script>
+  </body>
+</html>

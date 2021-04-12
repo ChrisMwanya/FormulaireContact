@@ -1,98 +1,99 @@
-var prenom = document.querySelector("#prenom");
-var nom = document.querySelector("#nom");
-var group = document.querySelector("#group");
-var bio = document.querySelector("#bio");
-var btnCreate = document.querySelector("#btnCreer")
-var btnReint = document.querySelector("#btnReint") 
-var contacts = [];
-var content_contact= document.querySelector("#content_contact");
-content_contact.classList.add("scroll")
+let firstName = document.querySelector("#firstName");
+let lastName = document.querySelector("#lastName");
+let group = document.querySelector("#group");
+let biography = document.querySelector("#biography");
+let btnCreate = document.querySelector("#btnCreer")
+let btnReint = document.querySelector("#btnReint") 
+let listContacts = [];
+let listContactContainer= document.querySelector("#listContactContainer");
+listContactContainer.classList.add("scroll")
 /**********************Reinitialisation**********************/
 
 btnReint.addEventListener('click',function (e) {
     e.preventDefault();
-    prenom.value = "" ;
-    nom.value = "";
+    firstName.value = "" ;
+    lastName.value = "";
     group.value = "";
-    bio.value = "";
+    biography.value = "";
+    listContactContainer.remove()
 })
 
 /************** Enregistrement du conctat*******************/
 btnCreate.addEventListener('click',function(e)  {
     e.preventDefault();    
-    var personne = {
-        fname : prenom.value,
-        lname : nom.value,
+    let person = {
+        fname : firstName.value,
+        lname : lastName.value,
         groupe : group.value,
-        biographie : bio.value
+        biographie : biography.value
     }
-    contacts.push(personne);    
+    listContacts.push(person);    
     afficher();
 })
 
-/**************Fonction affichager des contacts***************/
+/**************Fonction affichager des listContacts***************/
 
 function afficher(){
 
-    let contactSauve = contacts[contacts.length-1];
-   var p = document.createElement("p");
-   p.setAttribute("id", "cont_bio");
-   p.textContent = contactSauve.biographie
+    let listContactsauve = listContacts[listContacts.length-1];
+   let paragBiography = document.createElement("p");
+   paragBiography.setAttribute("id", "cont_biography");
+   paragBiography.textContent = listContactsauve.biographie
 
-   var h5 = document.createElement("h5");
-   h5.setAttribute("id", "cont_group");
-   h5.textContent = contactSauve.groupe;
+   let secondTitle = document.createElement("h5");
+   secondTitle.setAttribute("id", "cont_group");
+   secondTitle.textContent = listContactsauve.groupe;
 
-   var h4 = document.createElement("h4");
-   h4.setAttribute("id", "cont_nom");
-   h4.textContent = contactSauve.fname +" "+contactSauve.lname;
+   let title = document.createElement("h4");
+   title.setAttribute("id", "cont_lastName");
+   title.textContent = listContactsauve.fname +" "+listContactsauve.lname;
 
-   var cont_btnClose= document.createElement("div");
-   cont_btnClose.classList.add("cont_btnClose")
+   let btnDeleteContact= document.createElement("div");
+   btnDeleteContact.classList.add("cont_btnClose")
 
-   var i_close = document.createElement("i")
-   i_close.classList.add("window")
-   i_close.classList.add("close")
-   i_close.classList.add("icon")
+   let iconDelete = document.createElement("i")
+   iconDelete.classList.add("window")
+   iconDelete.classList.add("close")
+   iconDelete.classList.add("icon")
 
-   cont_btnClose.appendChild(i_close)
+   btnDeleteContact.appendChild(iconDelete)
 
-   cont_btnClose.addEventListener('click', function (e) {
-       e.preventDefault();
-       cont_list.remove()
+   btnDeleteContact.addEventListener('click', function (e) {
+       e.preventDefault();    
+       containerContact.remove()
        
    });
 
-   var i_avatar= document.createElement('i')
-   i_avatar.classList.add('user')
-   i_avatar.classList.add('massive')
-   i_avatar.classList.add('circle')
-   i_avatar.classList.add('icon')
+   let iconAvatar= document.createElement('i')
+   iconAvatar.classList.add('user')
+   iconAvatar.classList.add('massive')
+   iconAvatar.classList.add('circle')
+   iconAvatar.classList.add('icon')
 
-   var texte_cont = document.createElement('div');
+   let texte_cont = document.createElement('div');
    texte_cont.classList.add('texte_cont')
 
-   var flex= document.createElement('div');
+   let flex= document.createElement('div');
    flex.classList.add('flex');
 
 
 
-   var cont_list = document.createElement("div");
-   cont_list.classList.add('ui')
-   cont_list.classList.add('text')
-   cont_list.classList.add('overflow')
+   let containerContact = document.createElement("div");
+   containerContact.classList.add('ui')
+   containerContact.classList.add('text')
+   containerContact.classList.add('overflow')
 
    
-   texte_cont.appendChild(h4)
-   texte_cont.appendChild(h5)
-   texte_cont.appendChild(p)
+   texte_cont.appendChild(title)
+   texte_cont.appendChild(secondTitle)
+   texte_cont.appendChild(paragBiography)
 
-   flex.appendChild(i_avatar);
+   flex.appendChild(iconAvatar);
    flex.appendChild(texte_cont);
 
-   cont_list.appendChild(cont_btnClose);
-   cont_list.appendChild(flex);
+   containerContact.appendChild(btnDeleteContact);
+   containerContact.appendChild(flex);
 
-   content_contact.appendChild(cont_list);
+   listContactContainer.appendChild(containerContact);
    
 }

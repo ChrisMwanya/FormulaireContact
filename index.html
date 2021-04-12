@@ -24,16 +24,16 @@
           <form class="ui form" method="POST">
             <div class="field">
               <label>Prénom</label>
-              <input type="text" id="prenom"  />
+              <input type="text" id="firstName"  />
             </div>
             <div class="field">
               <label>Nom</label>
-              <input type="text" id="nom" />
+              <input type="text" id="lastName" />
             </div>
             <div class="field">
                 <label>Groupe</label>
                 <Select id="group">
-                    <option value=""></option>
+                    <option value="" disabled selected>Choisir votre Groupe</option>
                     <option value="Collègue">Collègue</option>
                     <option value="Famille">Famille</option>
                     <option value="Ami">Ami</option>
@@ -41,10 +41,10 @@
               </div>
             <div class="field">
                 <label>Bio</label>
-                <textarea name="" id="bio" cols="30" rows="4"></textarea>
+                <textarea name="" id="biography" cols="30" rows="4"></textarea>
               </div>
             <div class="field">
-                <button class="ui btn_petit button" type="submit">Choisir un fichier</button>
+                <input type="file" name="avatar" id="avatar">
                 
             </div>
                 <div class="field flex_space">
@@ -54,11 +54,8 @@
           </form>
         </div>
         <div class="bgd_white width_2X">
-          <div class="ui label width_max bgd_bleu2" >Liste de contact</div>
-          <div class="ui  icon input">            
-            <input type="text" placeholder="Rechercher...">
-          </div>
-          <div id="content_contact" >
+          <div class="ui label width_max bgd_bleu2" >Liste de contact</div>         
+          <div id="listContactContainer" >
              <!-- <div id="contact_list" class="ui text overflow ">
                                      
                 <div class="cont_btnClose">
